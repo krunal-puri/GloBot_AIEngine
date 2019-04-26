@@ -10,8 +10,9 @@ import android.widget.ImageView;
 
 public class SplashActivity extends AppCompatActivity {
 
-    Animation anim_zoom_out,anim_zoom_in;
-    ImageView img_splash,img_mic;
+    Animation anim_zoom_out, anim_zoom_in;
+    ImageView img_splash, img_mic;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,8 +22,8 @@ public class SplashActivity extends AppCompatActivity {
         img_mic = findViewById(R.id.img_mic);
 
 
-        anim_zoom_out = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_zoom_out_bounce);
-        anim_zoom_in = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.anim_zoom_in);
+        anim_zoom_out = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_zoom_out_bounce);
+        anim_zoom_in = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.anim_zoom_in);
 
 
         img_mic.setVisibility(View.VISIBLE);
@@ -46,7 +47,6 @@ public class SplashActivity extends AppCompatActivity {
 
             }
         });
-
 
 
         anim_zoom_out.setAnimationListener(new Animation.AnimationListener() {

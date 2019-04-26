@@ -3,7 +3,10 @@
     package="com.example.beast.chatbot">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".FirebaseApp"
@@ -13,8 +16,10 @@
         android:roundIcon="@drawable/logo_globot"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity android:name=".SplashActivity"
-            android:theme="@style/AppThemeWhite">
+            android:theme="@style/AppThemeWhite"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

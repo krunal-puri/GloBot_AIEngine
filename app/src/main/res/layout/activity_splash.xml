@@ -6,12 +6,12 @@
     android:background="@color/colorWhite">
 
     <ImageView
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
         android:id="@+id/img_splash"
         android:visibility="gone"
         android:layout_centerInParent="true"
-        android:src="@drawable/logo_globot"/>
+        android:src="@drawable/logo_two"/>
 
 
     <ImageView
