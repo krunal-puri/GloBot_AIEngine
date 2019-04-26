@@ -5,14 +5,10 @@ public class ChatMessage {
     private String msgText;
     private String msgUser;
 
-
-
     public ChatMessage(String msgText, String msgUser){
         this.msgText = msgText;
         this.msgUser = msgUser;
-
     }
-
 
     public ChatMessage(){
 

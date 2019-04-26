@@ -1,21 +1,17 @@
 package com.example.beast.chatbot;
 
-
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.TextView;
-public class chat_rec extends RecyclerView.ViewHolder  {
 
+public class chat_rec extends RecyclerView.ViewHolder {
 
+    TextView leftText, rightText;
 
-    TextView leftText,rightText;
-
-    public chat_rec(View itemView){
+    public chat_rec(View itemView) {
         super(itemView);
 
-        leftText = (TextView)itemView.findViewById(R.id.leftText);
-        rightText = (TextView)itemView.findViewById(R.id.rightText);
-
-
+        leftText = itemView.findViewById(R.id.leftText);
+        rightText = itemView.findViewById(R.id.rightText);
     }
 }
