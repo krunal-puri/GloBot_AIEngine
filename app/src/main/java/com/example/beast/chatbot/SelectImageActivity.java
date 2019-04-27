@@ -27,12 +27,13 @@ public class SelectImageActivity extends Activity {
     private static final int PERMISSION_REQUEST_CODE = 200;
     private static final int CAMERA_REQUEST_CODE = 102;
 
-    LinearLayout lay_select_image;
+    LinearLayout lay_select_image,lay_cancel;
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_image);
 
+        lay_cancel = findViewById(R.id.lay_cancel);
         lay_select_image = findViewById(R.id.lay_select_image);
         lay_select_image.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,6 +41,15 @@ public class SelectImageActivity extends Activity {
                 Intent intent_new = new Intent(SelectImageActivity.this, CaptureActivity.class);
                 startActivity(intent_new);
                 overridePendingTransition(R.anim.slide_out, R.anim.slide_in);
+                finish();
+
+            }
+        });
+
+        lay_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
 
             }
         });

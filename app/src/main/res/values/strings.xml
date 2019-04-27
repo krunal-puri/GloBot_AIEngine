@@ -5,4 +5,31 @@
     <string name="speech_prompt">Say something&#8230;</string>
     <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
     <string name="tap_on_mic">Tap on mic to speak</string>
+
+    <string name="about">As to enhance the "glo" app/portal( or our in-house product), we consider our work is a good attempt to make decisions as where we incorporate AI in our existing products. Which also make a good base for take more challenges and will help us to attract AI related products/ clients. And help us to gain smoother revenue.
+
+With our current prototype, there are 2 features.
+
+First one is a "Chat Bot". And second one is "Capture"
+
+Now, with Chat Bot model, as name say we have make a Bot who helps to book cab, check cab availability, next schedule for cab and all cab related services provided by company for employees.
+Every day employees goes through these small hassles to get book there cab on time. Although, they connect to reception to get to know the status and book but still we feel this is a daily basis used service and we can drop this hassle smoothly.
+
+So, this bot book the service, write an entry in excel for every request and this can be accessed by those personal we are authorized to provide/approve/deny the requested service.
+
+Additionally, driver also get detailed messages about the employees who are gonna travel with that particular scheduled before they start. Detailed message include employee id, where to drop.
+
+Bot also asks for cab/Suttle route to travel from. Whether and traffic update also can be incorporated.
+
+
+Our second scope of this prototype helps the employees, especially those who are new in the campus (as currently we are growing), visiting guests, clients who visit office from different cities/countries.
+As we know, our offices at every locations have very well architecture where the walls have portraits of core member, one of the strongest pillars of the company. There are also very satisfying landscape/landmarks of that city is shown.
+So, by using capture the photo of the landmarks our prototype show more details about as where is location in city. Which further can be improved by adding more functionality like how to visit and more.
+
+With further extend of the captured portrait, we can develop model having enough data about every employee which we already have but store in databases and in hard copies.
+So if we develop these model and use tensorflow lite for Android
+
+
+
+</string>
 </resources>
