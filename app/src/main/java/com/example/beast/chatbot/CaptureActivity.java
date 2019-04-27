@@ -21,6 +21,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -60,34 +61,43 @@ public class CaptureActivity extends AppCompatActivity {
     private final String LOG_TAG = "MainActivity";
     private ImageView selectedImage;
     private TextView resultTextView;
-    private Button selectImageButton;
+//    private Button selectImageButton;
 
+    LinearLayout lay_result;
     private static final int CAMERA_REQUEST_CODE = 102;
     private Bitmap bitmap;
     private static final String CLOUD_VISION_API_KEY = "AIzaSyBhaI32R21qoFEtaHWnU_qP5mkaW9TPZ2E";
     private static final int PERMISSION_REQUEST_CODE = 200;
 
+    LinearLayout lay_select_image;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_capture);
-        selectImageButton = (Button) findViewById(R.id
-                .select_image_button);
+//        selectImageButton = (Button) findViewById(R.id.select_image_button);
         selectedImage = (ImageView) findViewById(R.id.selected_image);
         resultTextView = (TextView) findViewById(R.id.result);
+        lay_result = findViewById(R.id.lay_result);
+        lay_select_image = findViewById(R.id.lay_select_image);
 
 
-        if (checkPermissions()) {
-            Toast.makeText(this, "granted", Toast.LENGTH_SHORT).show();
-        } else {
-            requestPermission();
+        final android.support.v7.widget.Toolbar toolbar = (android.support.v7.widget.Toolbar) findViewById(R.id.toolbar);
+        toolbar.setNavigationIcon(R.drawable.ic_back);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
-        }
+        takePictureFromCamera();
 
-        selectImageButton.setOnClickListener(new View.OnClickListener() {
+
+        lay_select_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 takePictureFromCamera();
+                lay_select_image.setVisibility(View.GONE);
             }
         });
     }
@@ -97,21 +107,7 @@ public class CaptureActivity extends AppCompatActivity {
         startActivityForResult(intent, CAMERA_REQUEST_CODE);
     }
 
-    private void requestPermission() {
 
-        ActivityCompat.requestPermissions(this, new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA}, PERMISSION_REQUEST_CODE);
-
-    }
-
-
-    private boolean checkPermissions() {
-
-        int result1 = ContextCompat.checkSelfPermission(getApplicationContext(), READ_EXTERNAL_STORAGE);
-        int result2 = ContextCompat.checkSelfPermission(getApplicationContext(), WRITE_EXTERNAL_STORAGE);
-        int result3 = ContextCompat.checkSelfPermission(getApplicationContext(), CAMERA);
-
-        return result1 == PackageManager.PERMISSION_GRANTED && result2 == PackageManager.PERMISSION_GRANTED && result3 == PackageManager.PERMISSION_GRANTED;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode,
@@ -127,55 +123,6 @@ public class CaptureActivity extends AppCompatActivity {
         }
     }
 
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
-        switch (requestCode) {
-            case PERMISSION_REQUEST_CODE:
-                if (grantResults.length > 0) {
-
-                    boolean outgoingAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
-                    boolean readcalllogAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
-                    boolean phonestateAccepted = grantResults[2] == PackageManager.PERMISSION_GRANTED;
-
-                    if (outgoingAccepted && readcalllogAccepted && phonestateAccepted)
-                        Toast.makeText(CaptureActivity.this, "Permission Granted, Now you can access.", Toast.LENGTH_SHORT).show();
-                    else {
-                        Toast.makeText(CaptureActivity.this, "Permission Denied, You cannot access.", Toast.LENGTH_SHORT).show();
-
-
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                            if (shouldShowRequestPermissionRationale(READ_EXTERNAL_STORAGE)) {
-                                showMessageOKCancel("You need to allow access to all the permissions",
-                                        new DialogInterface.OnClickListener() {
-                                            @Override
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                                                    requestPermissions(new String[]{READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, CAMERA},
-                                                            PERMISSION_REQUEST_CODE);
-                                                }
-                                            }
-                                        });
-                                return;
-                            }
-                        }
-
-                    }
-                }
-
-
-                break;
-        }
-    }
-
-    private void showMessageOKCancel(String message, DialogInterface.OnClickListener okListener) {
-        new AlertDialog.Builder(CaptureActivity.this)
-                .setMessage(message)
-                .setPositiveButton("OK", okListener)
-                .setNegativeButton("Cancel", null)
-                .create()
-                .show();
-    }
 
 
     private void callCloudVision(final Bitmap bitmap) throws IOException {
@@ -231,7 +178,7 @@ public class CaptureActivity extends AppCompatActivity {
                     Log.d(LOG_TAG, "sending request");
 
                     BatchAnnotateImagesResponse response = annotateRequest.execute();
-                    return convertResponseToString(response);
+                    return convertResponseToStringNew(response);
 
                 } catch (GoogleJsonResponseException e) {
                     Log.e(LOG_TAG, "Request failed: " + e.getContent());
@@ -243,9 +190,57 @@ public class CaptureActivity extends AppCompatActivity {
 
             protected void onPostExecute(String result) {
                 resultTextView.setText(result);
+                Log.d("CAPTURE>>>>",result);
+                lay_result.setVisibility(View.VISIBLE);
+                lay_select_image.setVisibility(View.VISIBLE);
+
             }
         }.execute();
     }
+
+
+    private String convertResponseToStringNew(BatchAnnotateImagesResponse response) {
+        StringBuilder message = new StringBuilder("Results:\n\n");
+        List<EntityAnnotation> labels = response.getResponses().get(0).getLabelAnnotations();
+        if (labels != null) {
+            message.append("Labels:\n");
+            for (EntityAnnotation label : labels) {
+                message.append(label.getDescription());
+                message.append(",");
+            }
+        } else {
+//            message.append("nothing\n");
+        }
+
+
+        List<EntityAnnotation> texts = response.getResponses().get(0)
+                .getTextAnnotations();
+        if (texts != null) {
+            message.append("\n\nTexts:\n");
+            for (EntityAnnotation text : texts) {
+                message.append( text.getDescription());
+                message.append("\n");
+            }
+        } else {
+//            message.append("nothing\n");
+        }
+
+
+        List<EntityAnnotation> landmarks = response.getResponses().get(0)
+                .getLandmarkAnnotations();
+        if (landmarks != null) {
+            message.append("\n\nLandmarks:\n");
+            for (EntityAnnotation landmark : landmarks) {
+                message.append(landmark.getDescription());
+                message.append("\n");
+            }
+        } else {
+//            message.append("nothing\n");
+        }
+
+        return message.toString();
+    }
+
 
     private String convertResponseToString(BatchAnnotateImagesResponse response) {
         StringBuilder message = new StringBuilder("Results:\n\n");

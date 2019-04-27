@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite">
+
+    <pl.droidsonroids.gif.GifTextView
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:id="@+id/gif_nonet"
+        android:layout_centerInParent="true"
+        android:background="@drawable/nonet"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NO INTERNET CONNECTION"
+        android:padding="2dp"
+        android:gravity="center"
+        android:layout_below="@id/gif_nonet"
+        android:id="@+id/lbl_net1"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:textColor="@color/colorBlack"
+        android:textSize="17dip"/>
+
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Check your internet connection and try again."
+        android:padding="2dp"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_below="@id/lbl_net1"
+        android:id="@+id/lbl_net2"
+        android:textColor="@color/colorBlack"
+        android:textSize="14dip"/>
+
+
+
+    <TextView android:id="@+id/lbl_ok"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:text="OK"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/lbl_net2"
+        android:background="@drawable/green_stroke"
+        android:layout_gravity="left"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16dip"/>
+
+</RelativeLayout>
