@@ -33,6 +33,7 @@ import com.google.api.services.vision.v1.model.BatchAnnotateImagesResponse;
 import com.google.api.services.vision.v1.model.EntityAnnotation;
 import com.google.api.services.vision.v1.model.Feature;
 import com.google.api.services.vision.v1.model.Image;
+import com.google.api.services.vision.v1.model.ImageProperties;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -152,6 +153,13 @@ public class CaptureActivity extends AppCompatActivity {
                     landmarkDetection.setMaxResults(10);
                     featureList.add(landmarkDetection);
 
+
+                    Feature logoDetection = new Feature();
+                    logoDetection.setType("LOGO_DETECTION");
+                    logoDetection.setMaxResults(10);
+                    featureList.add(logoDetection);
+
+
                     List<AnnotateImageRequest> imageList = new ArrayList<>();
                     AnnotateImageRequest annotateImageRequest = new AnnotateImageRequest();
                     Image base64EncodedImage = getBase64EncodedJpeg(bitmap);
@@ -170,6 +178,7 @@ public class CaptureActivity extends AppCompatActivity {
                     Log.d(LOG_TAG, "sending request");
 
                     BatchAnnotateImagesResponse response = annotateRequest.execute();
+                    Log.d("CAPTURE>>>>",response.toString());
                     return convertResponseToStringNew(response);
 
                 } catch (GoogleJsonResponseException e) {
@@ -182,7 +191,6 @@ public class CaptureActivity extends AppCompatActivity {
 
             protected void onPostExecute(String result) {
                 resultTextView.setText(result);
-                Log.d("CAPTURE>>>>",result);
                 lay_result.setVisibility(View.VISIBLE);
                 lay_select_image.setVisibility(View.VISIBLE);
 
@@ -229,6 +237,20 @@ public class CaptureActivity extends AppCompatActivity {
         } else {
 //            message.append("nothing\n");
         }
+
+
+        List<EntityAnnotation> logoDetects = response.getResponses().get(0)
+                .getLogoAnnotations();
+        if (logoDetects != null) {
+            message.append("\n\nLogo:\n");
+            for (EntityAnnotation logoDetect : logoDetects) {
+                message.append(logoDetect.getDescription());
+                message.append("\n");
+            }
+        } else {
+//            message.append("nothing\n");
+        }
+
 
         return message.toString();
     }
