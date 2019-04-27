@@ -8,7 +8,6 @@ import android.support.v7.widget.CardView;
 
 public class HomeActivity extends AppCompatActivity {
 
-    CardView lay_chat, lay_capture, lay_tensor;
     CardView lay_chat,lay_capture;
     ConnectivityManager connec ;
 
