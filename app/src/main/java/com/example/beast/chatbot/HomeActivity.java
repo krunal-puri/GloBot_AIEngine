@@ -7,13 +7,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
-import android.view.MenuInflater;
 import android.view.MenuItem;
 
 public class HomeActivity extends AppCompatActivity {
 
-    CardView lay_chat, lay_capture, lay_tensor;
+    
     ConnectivityManager connec;
+    CardView lay_chat,lay_capture;
 
 
     @Override
