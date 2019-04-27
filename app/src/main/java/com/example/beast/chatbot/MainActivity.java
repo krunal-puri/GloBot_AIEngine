@@ -1,6 +1,7 @@
 package com.example.beast.chatbot;
 
 import android.Manifest;
+import android.app.ActionBar;
 import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
@@ -13,6 +14,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements AIListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        Toolbar toolbarInChat = findViewById(R.id.toolbarInChat);
+        toolbarInChat.setTitle("Chat Bot");
+        toolbarInChat.setNavigationIcon(R.drawable.ic_arrow_back);
+        toolbarInChat.setNavigationOnClickListener(v -> onBackPressed());
 
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.RECORD_AUDIO}, 1);
 

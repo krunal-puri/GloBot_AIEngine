@@ -61,7 +61,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     annotationProcessor 'org.apache.logging.log4j:log4j-core:2.8'
     // api.ai SDK dependencies
-    implementation('ai.api:libai:1.4.8') {
+    implementation('ai.api:libai:1.4.9') {
         exclude module: 'log4j-core'
     }
 

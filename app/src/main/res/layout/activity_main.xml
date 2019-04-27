@@ -6,24 +6,31 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.beast.chatbot.MainActivity">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbarInChat"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="4dp"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
+    </android.support.v7.widget.Toolbar>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingTop="10dp"
-        android:paddingBottom="50dp"
-        android:clipToPadding="false"
         android:background="#f4f6f7"
+        android:layout_below="@+id/toolbarInChat"
+        android:layout_above="@+id/enterMessageLayout"
         />
 
-
     <RelativeLayout
+        android:id="@+id/enterMessageLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
-
 
         <RelativeLayout
             android:layout_width="match_parent"
