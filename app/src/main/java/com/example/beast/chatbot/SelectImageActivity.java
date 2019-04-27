@@ -46,7 +46,7 @@ public class SelectImageActivity extends Activity {
 
 
         if (checkPermissions()) {
-            Toast.makeText(this, "granted", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(this, "granted", Toast.LENGTH_SHORT).show();
         } else {
             requestPermission();
 
