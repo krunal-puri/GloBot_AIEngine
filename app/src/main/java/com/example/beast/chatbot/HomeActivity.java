@@ -5,11 +5,10 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
-import android.view.View;
-import android.widget.LinearLayout;
 
 public class HomeActivity extends AppCompatActivity {
 
+    CardView lay_chat, lay_capture, lay_tensor;
     CardView lay_chat,lay_capture;
     ConnectivityManager connec ;
 
@@ -54,6 +53,4 @@ public class HomeActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
 }
