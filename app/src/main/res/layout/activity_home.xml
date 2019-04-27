@@ -6,6 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -62,7 +63,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:background="@color/colorWhite"
+                    android:background="#DCDCDC	"
                     android:orientation="vertical">
 
                     <LinearLayout
@@ -103,13 +104,61 @@
                                         card_view:cardPreventCornerOverlap="true"
                                         card_view:cardUseCompatPadding="true">
 
-                                        <ImageView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:adjustViewBounds="true"
-                                            android:contentDescription="@null"
-                                            android:scaleType="fitXY"
-                                            android:src="@drawable/img_chat" />
+                                       <RelativeLayout
+                                           android:layout_width="match_parent"
+                                           android:layout_height="match_parent">
+
+                                           <LinearLayout
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               android:orientation="vertical">
+
+                                               <ImageView
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:adjustViewBounds="true"
+                                                   android:contentDescription="@null"
+                                                   android:scaleType="fitXY"
+                                                   android:src="@drawable/img_chat" />
+
+                                           </LinearLayout>
+
+                                           <LinearLayout
+                                               android:layout_width="match_parent"
+                                               android:layout_height="match_parent"
+                                               android:orientation="horizontal"
+                                               android:background="#55000000">
+
+                                               <LinearLayout
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:orientation="vertical"
+                                                   android:layout_weight="7"></LinearLayout>
+
+                                                <LinearLayout
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   android:orientation="vertical"
+                                                   android:layout_weight="3">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginBottom="5dp"
+                                                        android:layout_marginRight="10dp"
+                                                        android:layout_gravity="bottom"
+                                                        android:gravity="bottom"
+                                                        android:text="Write To Be Understood, Speak To Be Heard, Read To Grow."
+                                                        android:textColor="@color/colorWhite"/>
+
+                                                </LinearLayout>
+
+
+                                           </LinearLayout>
+
+
+
+                                       </RelativeLayout>
 
                                     </android.support.v7.widget.CardView>
 
@@ -167,7 +216,6 @@
                                 android:layout_weight="1"
                                 android:orientation="vertical">
 
-
                                 <RelativeLayout
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent">
@@ -186,13 +234,62 @@
                                         card_view:cardPreventCornerOverlap="true"
                                         card_view:cardUseCompatPadding="true">
 
-                                        <ImageView
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:adjustViewBounds="true"
-                                            android:contentDescription="@null"
-                                            android:scaleType="fitXY"
-                                            android:src="@drawable/img_chat" />
+                                            android:layout_height="match_parent">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:adjustViewBounds="true"
+                                                    android:contentDescription="@null"
+                                                    android:scaleType="fitXY"
+                                                    android:src="@drawable/img_chat" />
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="horizontal"
+                                                android:background="#55000000">
+
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:orientation="vertical"
+                                                    android:layout_weight="3">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginBottom="5dp"
+                                                        android:layout_marginLeft="10dp"
+                                                        android:layout_gravity="bottom"
+                                                        android:gravity="bottom"
+                                                        android:text="Images that tell story"
+                                                        android:textColor="@color/colorWhite"/>
+
+                                                </LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:orientation="vertical"
+                                                    android:layout_weight="7"></LinearLayout>
+
+
+                                            </LinearLayout>
+
+
+
+                                        </RelativeLayout>
 
                                     </android.support.v7.widget.CardView>
 
@@ -207,7 +304,6 @@
                                             android:layout_width="match_parent"
                                             android:layout_height="match_parent"
                                             android:layout_weight="3" />
-
 
                                         <LinearLayout
                                             android:layout_width="match_parent"
@@ -230,17 +326,20 @@
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:background="@color/colorOrange"
-                                                    android:text="CAPTURE"
+                                                    android:text="CHAT BOT"
                                                     android:textColor="@color/colorWhite"
                                                     android:textStyle="italic" />
 
                                             </LinearLayout>
                                         </LinearLayout>
 
+
+
                                     </LinearLayout>
 
 
                                 </RelativeLayout>
+
 
                             </LinearLayout>
 
@@ -257,7 +356,6 @@
                                     android:layout_height="match_parent">
 
                                     <android.support.v7.widget.CardView
-                                        android:id="@+id/lay_tensor"
                                         android:layout_width="fill_parent"
                                         android:layout_height="wrap_content"
                                         android:layout_marginStart="20dp"
@@ -270,13 +368,61 @@
                                         card_view:cardPreventCornerOverlap="true"
                                         card_view:cardUseCompatPadding="true">
 
-                                        <ImageView
+                                        <RelativeLayout
                                             android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:adjustViewBounds="true"
-                                            android:contentDescription="@null"
-                                            android:scaleType="fitXY"
-                                            android:src="@drawable/img_chat" />
+                                            android:layout_height="match_parent">
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="vertical">
+
+                                                <ImageView
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:adjustViewBounds="true"
+                                                    android:contentDescription="@null"
+                                                    android:scaleType="fitXY"
+                                                    android:src="@drawable/img_chat" />
+
+                                            </LinearLayout>
+
+                                            <LinearLayout
+                                                android:layout_width="match_parent"
+                                                android:layout_height="match_parent"
+                                                android:orientation="horizontal"
+                                                android:background="#55000000">
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:orientation="vertical"
+                                                    android:layout_weight="7"></LinearLayout>
+
+                                                <LinearLayout
+                                                    android:layout_width="match_parent"
+                                                    android:layout_height="match_parent"
+                                                    android:orientation="vertical"
+                                                    android:layout_weight="3">
+
+                                                    <TextView
+                                                        android:layout_width="match_parent"
+                                                        android:layout_height="match_parent"
+                                                        android:layout_marginBottom="5dp"
+                                                        android:layout_marginRight="10dp"
+                                                        android:layout_gravity="bottom"
+                                                        android:gravity="bottom"
+                                                        android:text="Write To Be Understood, Speak To Be Heard, Read To Grow."
+                                                        android:textColor="@color/colorWhite"/>
+
+                                                </LinearLayout>
+
+
+                                            </LinearLayout>
+
+
+
+                                        </RelativeLayout>
 
                                     </android.support.v7.widget.CardView>
 
@@ -304,6 +450,7 @@
                                                 android:gravity="center">
 
                                                 <com.example.beast.chatbot.VerticalTextView
+                                                    android:id="@+id/verticalTextView"
                                                     android:layout_width="match_parent"
                                                     android:layout_height="match_parent"
                                                     android:background="@color/colorOrange"
