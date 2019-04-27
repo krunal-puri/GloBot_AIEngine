@@ -10,7 +10,7 @@
 
 \n \nWith our current prototype, there are 2 features.
 
-\nFirst one is a "Chat Bot". And second one is "Capture"
+\nFirst one is a "Chat Bot". And second one is "Get Me"
 
 \n\nNow, with Chat Bot model, as name say we have make a Bot who helps to book cab, check cab availability, next schedule for cab and all cab related services provided by company for employees.
 Every day employees goes through these small hassles to get book there cab on time. Although, they connect to reception to get to know the status and book but still we feel this is a daily basis used service and we can drop this hassle smoothly.
@@ -24,7 +24,7 @@ Every day employees goes through these small hassles to get book there cab on ti
 
 \n\nOur second scope of this prototype helps the employees, especially those who are new in the campus (as currently we are growing), visiting guests, clients who visit office from different cities/countries.
 As we know, our offices at every locations have very well architecture where the walls have portraits of core member, one of the strongest pillars of the company. There are also very satisfying landscape/landmarks of that city is shown.
-So, by using capture the photo of the landmarks our prototype show more details about as where is location in city. Which further can be improved by adding more functionality like how to visit and more.
+So, by using "Get Me" the photo of the landmarks our prototype show more details about as where is location in city. Which further can be improved by adding more functionality like how to visit and more.
 
 \n\nWith further extend of the captured portrait, we can develop model having enough data about every employee which we already have but store in databases and in hard copies.
 So if we develop these model and use TensorFlow lite for Android it works as expected where it provides more data in detailed manner.
